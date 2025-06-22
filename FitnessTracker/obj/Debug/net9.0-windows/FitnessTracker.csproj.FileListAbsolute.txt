@@ -1,0 +1,17 @@
+C:\Users\Arkar Min\OneDrive\Documents\NCC\Designing and Developing OO Computer Program\Assignment\FitnessTracker\FitnessTracker\obj\Debug\net9.0-windows\FitnessTracker.MainForm.resources
+C:\Users\Arkar Min\OneDrive\Documents\NCC\Designing and Developing OO Computer Program\Assignment\FitnessTracker\FitnessTracker\obj\Debug\net9.0-windows\FitnessTracker.LoginForm.resources
+C:\Users\Arkar Min\OneDrive\Documents\NCC\Designing and Developing OO Computer Program\Assignment\FitnessTracker\FitnessTracker\obj\Debug\net9.0-windows\FitnessTracker.csproj.GenerateResource.cache
+C:\Users\Arkar Min\OneDrive\Documents\NCC\Designing and Developing OO Computer Program\Assignment\FitnessTracker\FitnessTracker\obj\Debug\net9.0-windows\FitnessTracker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Arkar Min\OneDrive\Documents\NCC\Designing and Developing OO Computer Program\Assignment\FitnessTracker\FitnessTracker\obj\Debug\net9.0-windows\FitnessTracker.AssemblyInfoInputs.cache
+C:\Users\Arkar Min\OneDrive\Documents\NCC\Designing and Developing OO Computer Program\Assignment\FitnessTracker\FitnessTracker\obj\Debug\net9.0-windows\FitnessTracker.AssemblyInfo.cs
+C:\Users\Arkar Min\OneDrive\Documents\NCC\Designing and Developing OO Computer Program\Assignment\FitnessTracker\FitnessTracker\obj\Debug\net9.0-windows\FitnessTracker.csproj.CoreCompileInputs.cache
+C:\Users\Arkar Min\OneDrive\Documents\NCC\Designing and Developing OO Computer Program\Assignment\FitnessTracker\FitnessTracker\bin\Debug\net9.0-windows\FitnessTracker.exe
+C:\Users\Arkar Min\OneDrive\Documents\NCC\Designing and Developing OO Computer Program\Assignment\FitnessTracker\FitnessTracker\bin\Debug\net9.0-windows\FitnessTracker.deps.json
+C:\Users\Arkar Min\OneDrive\Documents\NCC\Designing and Developing OO Computer Program\Assignment\FitnessTracker\FitnessTracker\bin\Debug\net9.0-windows\FitnessTracker.runtimeconfig.json
+C:\Users\Arkar Min\OneDrive\Documents\NCC\Designing and Developing OO Computer Program\Assignment\FitnessTracker\FitnessTracker\bin\Debug\net9.0-windows\FitnessTracker.dll
+C:\Users\Arkar Min\OneDrive\Documents\NCC\Designing and Developing OO Computer Program\Assignment\FitnessTracker\FitnessTracker\bin\Debug\net9.0-windows\FitnessTracker.pdb
+C:\Users\Arkar Min\OneDrive\Documents\NCC\Designing and Developing OO Computer Program\Assignment\FitnessTracker\FitnessTracker\obj\Debug\net9.0-windows\FitnessTracker.dll
+C:\Users\Arkar Min\OneDrive\Documents\NCC\Designing and Developing OO Computer Program\Assignment\FitnessTracker\FitnessTracker\obj\Debug\net9.0-windows\refint\FitnessTracker.dll
+C:\Users\Arkar Min\OneDrive\Documents\NCC\Designing and Developing OO Computer Program\Assignment\FitnessTracker\FitnessTracker\obj\Debug\net9.0-windows\FitnessTracker.pdb
+C:\Users\Arkar Min\OneDrive\Documents\NCC\Designing and Developing OO Computer Program\Assignment\FitnessTracker\FitnessTracker\obj\Debug\net9.0-windows\FitnessTracker.genruntimeconfig.cache
+C:\Users\Arkar Min\OneDrive\Documents\NCC\Designing and Developing OO Computer Program\Assignment\FitnessTracker\FitnessTracker\obj\Debug\net9.0-windows\ref\FitnessTracker.dll
