@@ -16,6 +16,7 @@ namespace FitnessTracker
 
             //Application.Run(new MainForm(tracker));
             Application.Run(new LoginForm(tracker));
+            //Application.Run(new GoalSettingForm());
         }
     }
 }

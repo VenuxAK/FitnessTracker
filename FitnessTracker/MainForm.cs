@@ -15,29 +15,60 @@ namespace FitnessTracker
         private FitnessTracker tracker;
         private User currentUser;
 
-        public MainForm(FitnessTracker fitnessTracker)
+        public MainForm(User user)
         {
             InitializeComponent();
-            this.tracker = fitnessTracker;
-            User? currentUserTemp = fitnessTracker.CurrentUser;
-            currentUser = currentUserTemp;
+            tracker = new FitnessTracker();
+            //this.tracker = fitnessTracker;
+            //User? currentUserTemp = fitnessTracker.CurrentUser;
+            currentUser = user;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //private User CU = tracker.CurrentUser;
-            if (tracker.CurrentUser != null)
-            {
-                lblCU.Text = tracker.CurrentUser.Username;
-
-            } else
+            if (currentUser == null)
             {
                 LoginForm loginForm = new LoginForm(tracker);
                 loginForm.ShowDialog();
-                Hide();
-                //this.Hide();
+                this.Hide();
+                return;
             }
 
-    }
+            lblWelcomeUser.Text = $"Welcome, {currentUser.Username}";
+            lblUserGoal.Text = $"Your Goal: {currentUser.CalorieGoal} kcal";
+            lblUserBurnedCal.Text = $"Calories Burned: {currentUser.CalorieBurned:F2} kcal";
+            lblUserGoalStatus.Text = currentUser.CalorieGoal > 0 ? $"Goal Status: {currentUser.GoalStatus()}" : "";
+
+        }
+
+        private void btnNavigateToSetGoal_Click(object sender, EventArgs e)
+        {
+            SettingGoalForm settingGoalForm = new SettingGoalForm(currentUser);
+            settingGoalForm.ShowDialog();
+
+            lblUserGoal.Text = $"Your Goal: {currentUser.CalorieGoal} kcal";
+            lblUserGoalStatus.Text = currentUser.CalorieGoal > 0 ? $"Goal Status: {currentUser.GoalStatus()}" : "";
+        }
+
+        private void btnNavigateToAddActivity_Click(object sender, EventArgs e)
+        {
+            AddActivityForm addActivityForm = new AddActivityForm(currentUser);
+            addActivityForm.ShowDialog();
+
+            lblUserBurnedCal.Text = $"Calories Burned: {currentUser.GetTotalCaloriesBurned():F2} kcal";
+            lblUserGoalStatus.Text = currentUser.CalorieGoal > 0 ? $"Goal Status: {currentUser.GoalStatus()}" : "";
+        }
+
+        private void btnNavigateToViewProgressSummary_Click(object sender, EventArgs e)
+        {
+            ProgressSummaryForm progressSummaryForm = new ProgressSummaryForm(currentUser);
+            progressSummaryForm.ShowDialog();
+        }
+
+        private void btnViewHistory_Click(object sender, EventArgs e)
+        {
+            ActivityHistoryForm activityHistoryForm = new ActivityHistoryForm(currentUser);
+            activityHistoryForm.ShowDialog();
+        }
     }
 }

@@ -26,6 +26,7 @@ namespace FitnessTracker
         private void LoginForm_Load(object sender, EventArgs e)
         {
             isRegistrationMode = false;
+            txtPassword.UseSystemPasswordChar = true;
 
             if (isRegistrationMode)
             {
@@ -46,6 +47,10 @@ namespace FitnessTracker
         private void ToggleMode()
         {
             isRegistrationMode = !isRegistrationMode;
+            lblStatus.Text = "";
+            txtUsername.Text = "";
+            txtPassword.Text = "";
+            cbHideShow.Checked = false;
 
             // Update button and link text
             btnAction.Text = isRegistrationMode ? "Register" : "Login";
@@ -57,7 +62,8 @@ namespace FitnessTracker
 
         private void btnAction_Click(object sender, EventArgs e)
         {
-            if (isRegistrationMode) {
+            if (isRegistrationMode)
+            {
                 HandleRegister();
             }
             else
@@ -66,20 +72,20 @@ namespace FitnessTracker
             }
         }
 
-        private void HandleLogin() 
+        private void HandleLogin()
         {
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            if(string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 this.ShowStatus("Please enter both username and password");
                 return;
             }
 
-            if (tracker.Login(username, password)) 
-            { 
-                MainForm mainForm = new MainForm(tracker);
+            if (tracker.Login(username, password))
+            {
+                MainForm mainForm = new MainForm(tracker.CurrentUser);
                 mainForm.Show();
                 this.Hide();
             }
@@ -87,13 +93,13 @@ namespace FitnessTracker
             {
                 loginAttempts++;
                 ShowStatus($"Invalid credentials. Attempts remaining: {maxAttempts - loginAttempts}");
-                
-                if(loginAttempts >= maxAttempts)
+
+                if (loginAttempts >= maxAttempts)
                 {
-                    MessageBox.Show("Too many failed attempts.", "Security Alert", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    MessageBox.Show("Too many failed attempts.", "Security Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     Application.Exit();
                 }
-                
+
                 return;
             }
 
@@ -118,7 +124,7 @@ namespace FitnessTracker
 
             if (!Validator.ValidatePassword(password))
             {
-                ShowStatus("Password must be 12 chars with at least 1 uppercase and 1 lowercase");
+                ShowStatus("Password must be 12 chars with at least 1 uppercase 1 lowercase");
                 return;
             }
 
@@ -126,7 +132,7 @@ namespace FitnessTracker
             {
                 //ShowStatus("Registration successful!");
                 //ToggleMode(); // Switch back to login mode
-                MainForm mainForm = new MainForm(tracker);
+                MainForm mainForm = new MainForm(tracker.CurrentUser);
                 mainForm.Show();
                 this.Hide();
             }
@@ -142,6 +148,11 @@ namespace FitnessTracker
         {
             lblStatus.Text = message;
             lblStatus.ForeColor = Color.Red;
+        }
+
+        private void cbHideShow_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = !cbHideShow.Checked;
         }
     }
 }

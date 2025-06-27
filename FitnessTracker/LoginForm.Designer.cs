@@ -36,6 +36,7 @@
             btnAction = new Button();
             lnkToggleMode = new LinkLabel();
             lblStatus = new Label();
+            cbHideShow = new CheckBox();
             SuspendLayout();
             // 
             // lblLoginHeader
@@ -113,11 +114,23 @@
             lblStatus.Size = new Size(0, 23);
             lblStatus.TabIndex = 7;
             // 
+            // cbHideShow
+            // 
+            cbHideShow.AutoSize = true;
+            cbHideShow.Location = new Point(474, 208);
+            cbHideShow.Name = "cbHideShow";
+            cbHideShow.Size = new Size(67, 24);
+            cbHideShow.TabIndex = 8;
+            cbHideShow.Text = "Show";
+            cbHideShow.UseVisualStyleBackColor = true;
+            cbHideShow.CheckedChanged += cbHideShow_CheckedChanged;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(868, 499);
+            Controls.Add(cbHideShow);
             Controls.Add(lblStatus);
             Controls.Add(label1);
             Controls.Add(lnkToggleMode);
@@ -143,5 +156,6 @@
         private Button btnAction;
         private LinkLabel lnkToggleMode;
         private Label lblStatus;
+        private CheckBox cbHideShow;
     }
 }
