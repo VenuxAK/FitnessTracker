@@ -1,4 +1,5 @@
-﻿namespace FitnessTracker
+﻿
+namespace FitnessTracker
 {
     partial class AddActivityForm
     {

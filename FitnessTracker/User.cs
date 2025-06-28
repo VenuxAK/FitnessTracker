@@ -11,11 +11,6 @@ namespace FitnessTracker
         public string Username { get; set; }
         public string Password { get; set; }
         public double CalorieGoal { get; set; }
-
-        public double CalorieBurned {  get; set; }
-
-        //public string GoalStatus { get; set; }
-
         public List<Activity> Activities { get; set; }
 
         public User(string username, string password)
@@ -23,7 +18,6 @@ namespace FitnessTracker
             Username = username;
             Password = password;
             CalorieGoal = 0; // Default goal
-            CalorieBurned = 0;
             Activities = new List<Activity>();
         }
 
@@ -32,9 +26,13 @@ namespace FitnessTracker
             return Activities.Sum(activity => activity.CalculateCalories());
         }
 
+        // Returns the status of the user's goal based on calories burned.
         public string GoalStatus()
         {
-            return CalorieBurned > CalorieGoal ? "You've achieved your goal!" : "Ongoing!";
+            double burned = GetTotalCaloriesBurned();
+            return CalorieGoal > 0 && burned >= CalorieGoal
+                ? "You've achieved your goal!"
+                : "Goal in progress...";
         }
 
 

@@ -23,22 +23,10 @@ namespace FitnessTracker
             Date = DateTime.Now;
         }
 
+        // Calculates calories burned using MET formula.
         public double CalculateCalories()
         {
             return MET * Weight * DurationHours;
         }
     }
-
-    //class Walking : Activity
-    //{
-    //    public int Steps { get; set; }
-    //    public double Distance { get; set; }
-    //    public double Time { get; set; }
-
-    //    public override double CalculateCalories()
-    //    {
-    //        //throw new NotImplementedException();
-    //        return (Steps * 0.04) + (Distance * 0.3) + (Time * 4.5);
-    //    }
-    //}
 }

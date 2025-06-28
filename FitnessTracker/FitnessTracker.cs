@@ -9,16 +9,13 @@ namespace FitnessTracker
     public class FitnessTracker
     {
         private List<User> users = new List<User>();
-        public User? CurrentUser { get; private set; } // Declare CurrentUser as nullable to fix CS8618
+
+        // Currently logged-in user
+        public User? CurrentUser { get; private set; }
 
         public FitnessTracker()
         {
-            // Initialize with some test users if needed
-            users.Add(new User("UserOne", "Userone11111"));
-            users.Add(new User("UserTwo", "Usertwo22222"));
-            users.Add(new User("UserThree", "Userthree33333"));
-            users.Add(new User("UserFour", "Userfour44444"));
-            users.Add(new User("UserFive", "Userfive55555"));
+            LoadTestUsers(); // preload test user for demo
         }
 
         public bool Register(string username, string password)
@@ -27,17 +24,36 @@ namespace FitnessTracker
             if (users.Any(u => u.Username == username))
                 return false;
 
-            users.Add(new User(username, password));
-            var user = users.FirstOrDefault(u => u.Username == username);
-            CurrentUser = user;
+            var newUser = new User(username, password);
+            users.Add(newUser);
+            CurrentUser = newUser;
             return true;
         }
 
+        // Login an existing user with valid credentials
         public bool Login(string username, string password)
         {
             var user = users.FirstOrDefault(u => u.Username == username && u.Password == password);
             CurrentUser = user;
             return user != null;
         }
+
+        public void Logout()
+        {
+            CurrentUser = null;
+        }
+        
+        private void LoadTestUsers()
+        {
+            users.AddRange(new[]
+            {
+                new User("UserOne", "Userone11111"),
+                new User("UserTwo", "Usertwo22222"),
+                new User("UserThree", "Userthree33333"),
+                new User("UserFour", "Userfour44444"),
+                new User("UserFive", "Userfive55555")
+            });
+        }
+    
     }
 }

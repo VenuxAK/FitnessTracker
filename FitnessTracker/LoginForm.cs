@@ -23,6 +23,7 @@ namespace FitnessTracker
             tracker = fitnessTracker;
         }
 
+        /// Sets login mode by default.
         private void LoginForm_Load(object sender, EventArgs e)
         {
             isRegistrationMode = false;
@@ -39,6 +40,7 @@ namespace FitnessTracker
 
         }
 
+        /// Toggles between login and registration modes.
         private void lnkToggleMode_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.ToggleMode();
@@ -47,17 +49,21 @@ namespace FitnessTracker
         private void ToggleMode()
         {
             isRegistrationMode = !isRegistrationMode;
-            lblStatus.Text = "";
-            txtUsername.Text = "";
-            txtPassword.Text = "";
-            cbHideShow.Checked = false;
+            ResetFormInputs();
 
             // Update button and link text
             btnAction.Text = isRegistrationMode ? "Register" : "Login";
             lnkToggleMode.Text = isRegistrationMode ? "Already have an account?" : "Create new account";
             lblLoginHeader.Text = isRegistrationMode ? "Register new account" : "Login to your account";
+        }
 
-
+        // Clear input fields
+        private void ResetFormInputs()
+        {
+            lblStatus.Text = "";
+            txtUsername.Text = "";
+            txtPassword.Text = "";
+            cbHideShow.Checked = false;
         }
 
         private void btnAction_Click(object sender, EventArgs e)
@@ -72,6 +78,7 @@ namespace FitnessTracker
             }
         }
 
+        /// Handles user login and manages failed attempts.
         private void HandleLogin()
         {
             string username = txtUsername.Text;
@@ -99,12 +106,11 @@ namespace FitnessTracker
                     MessageBox.Show("Too many failed attempts.", "Security Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     Application.Exit();
                 }
-
-                return;
             }
 
         }
 
+        /// Handles user registration with input validation.
         private void HandleRegister()
         {
             string username = txtUsername.Text;
@@ -130,8 +136,6 @@ namespace FitnessTracker
 
             if (tracker.Register(username, password))
             {
-                //ShowStatus("Registration successful!");
-                //ToggleMode(); // Switch back to login mode
                 MainForm mainForm = new MainForm(tracker.CurrentUser);
                 mainForm.Show();
                 this.Hide();
@@ -143,13 +147,14 @@ namespace FitnessTracker
 
         }
 
-
+        // Display error message
         private void ShowStatus(string message)
         {
             lblStatus.Text = message;
             lblStatus.ForeColor = Color.Red;
         }
 
+        // Password hide show toggler
         private void cbHideShow_CheckedChanged(object sender, EventArgs e)
         {
             txtPassword.UseSystemPasswordChar = !cbHideShow.Checked;

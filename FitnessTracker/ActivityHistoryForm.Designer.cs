@@ -44,11 +44,11 @@
             dgvActivities.BackgroundColor = SystemColors.Window;
             dgvActivities.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvActivities.Columns.AddRange(new DataGridViewColumn[] { ActivityName, MET, Weight, Duration, CaloriesBurned, Date });
-            dgvActivities.Location = new Point(99, 85);
+            dgvActivities.Location = new Point(99, 81);
             dgvActivities.Name = "dgvActivities";
             dgvActivities.RowHeadersWidth = 51;
             dgvActivities.ShowEditingIcon = false;
-            dgvActivities.Size = new Size(803, 233);
+            dgvActivities.Size = new Size(803, 325);
             dgvActivities.TabIndex = 0;
             // 
             // ActivityName

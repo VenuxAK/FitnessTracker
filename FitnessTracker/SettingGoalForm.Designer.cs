@@ -1,4 +1,5 @@
-﻿namespace FitnessTracker
+﻿
+namespace FitnessTracker
 {
     partial class SettingGoalForm
     {
@@ -53,6 +54,7 @@
             btnCancelSetGoal.TabIndex = 2;
             btnCancelSetGoal.Text = "Cancel";
             btnCancelSetGoal.UseVisualStyleBackColor = true;
+            btnCancelSetGoal.Click += btnCancelSetGoal_Click;
             // 
             // btnSetGoal
             // 
@@ -89,6 +91,11 @@
             ((System.ComponentModel.ISupportInitialize)numGoal).EndInit();
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void SettingGoalForm_Load(object sender, EventArgs e)
+        {
+            
         }
 
         #endregion
